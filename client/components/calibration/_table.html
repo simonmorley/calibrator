@@ -1,0 +1,24 @@
+<h2>Do it with {{ filtered.length || 0 }} clients</h2>
+
+<input ng-model="query" class="form-control" placeholder="Search"></input>
+<hr>
+
+<table class="table table-bordered">
+  <tr>
+    <!-- <th>oh</td> -->
+    <th>Client</td>
+    <th>Seen</td>
+    <th>Last Spotted</td>
+    <th>RSSI</td>
+    <th>Delta</td>
+    <!-- <th>Latlng</td> -->
+  </tr>
+  <tr ng-repeat='client in filtered = (clients | filter:query | orderBy:predicate:reverse)'>
+    <td>{{ client.client_mac }}</td>
+    <td>{{ client.first_seen }}</td>
+    <td>{{ client.last_seen }}</td>
+    <td>{{ client.rssi }}</td>
+    <td>{{ client.delta }}</td>
+    <!-- <td>{{ client.lat }}, {{ client.lng }}</td> -->
+  </tr>
+</table>
