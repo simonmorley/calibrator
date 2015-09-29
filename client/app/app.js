@@ -6,7 +6,9 @@ var app = angular.module('calibratorApp', [
   'ngSanitize',
   'myApp.directives',
   'myApp.services',
-  'ngRoute'
+  'ngRoute',
+  'angularMoment',
+  'pusher-angular',
 ]);
 
 app.config(function ($routeProvider, $locationProvider, $httpProvider) {

@@ -1,13 +1,9 @@
 'use strict';
 
-angular.module('calibratorApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+angular.module('calibratorApp').controller('MainCtrl', ['$scope', '$http', '$rootScope', '$pusher', function ($scope, $http, $rootScope, $pusher) {
 
-    // alert(123)
-
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
-
+  $scope.$on('$routeChangeSuccess', function () {
+    window.client = new Pusher('f5c774e098156e548079');
   });
+
+}]);
