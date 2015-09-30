@@ -21,9 +21,11 @@ app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', '$location
         last_seen: scope.last_seen
       };
       Calibrator.get(params).$promise.then(function(res) {
+        scope.error = undefined;
         scope.clients = res;
         scope.predicate = ['-last_seen', 'ap_mac'];
       }, function(err) {
+        scope.error = true;
         console.log(err);
       });
     }

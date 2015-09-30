@@ -1,4 +1,9 @@
 <h2>Do it with {{ filtered.length || 0 }} clients</h2>
+
+<div class="alert alert-danger" role="alert" ng-if="error">
+  There's been an error. Maybe we can't connect to the server. Blame it on the logins. Exterminate.
+</div>
+
 <div class="form-group">
   <input ng-model="query" class="form-control" placeholder="Search"></input>
 </div>
