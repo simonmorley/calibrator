@@ -2,16 +2,27 @@
 
 var app = angular.module('myApp.calibration.directives', []);
 
-app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', function(Calibrator, $routeParams, $pusher) {
+app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', '$location', function(Calibrator, $routeParams, $pusher, $location) {
 
   var link = function(scope) {
 
     scope.query = $routeParams.q;
+    if ( $routeParams.all === undefined ) {
+      scope.distance = $routeParams.distance || 5;
+    }
+    scope.last_seen = $routeParams.last_seen || true;
 
     function getData() {
-      Calibrator.get().$promise.then(function(res) {
+
+      var params = {
+        client_mac: $routeParams.client_mac,
+        ap_mac: $routeParams.ap_mac,
+        distance: scope.distance,
+        last_seen: scope.last_seen
+      };
+      Calibrator.get(params).$promise.then(function(res) {
         scope.clients = res;
-        scope.predicate = '-last_seen';
+        scope.predicate = ['-last_seen', 'ap_mac'];
       }, function(err) {
         console.log(err);
       });
@@ -23,6 +34,25 @@ app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', function(C
     channel.bind('general', function(data) {
       getData();
     });
+
+    scope.selectClientMac = function(val) {
+      scope.client_mac = val;  
+      var s = $location.search()
+      s.client_mac = val;
+      $location.search(s);
+    };
+
+    scope.selectApMac = function(val) {
+      scope.ap_mac = val;  
+      var s = $location.search()
+      s.ap_mac = val;
+      $location.search(s);
+    };
+
+    scope.clear = function() {
+      $location.search({});
+      scope.query = undefined;
+    };
 
     getData();
 

@@ -1,21 +1,23 @@
 <h2>Do it with {{ filtered.length || 0 }} clients</h2>
-
-<input ng-model="query" class="form-control" placeholder="Search"></input>
+<div class="form-group">
+  <input ng-model="query" class="form-control" placeholder="Search"></input>
+</div>
+<p><a href="" class="btn btn-default" ng-click="clear()">Clear Search</a></p>
 <hr>
 
 <table class="table table-bordered">
   <tr>
     <!-- <th>oh</td> -->
     <th>Client</td>
-    <!-- <th>Seen</td> -->
+    <th>Ap</td>
     <th>Last Seen</td>
     <th>RSSI</td>
     <!-- <th>Delta</td> -->
     <th>Calibrate</td>
   </tr>
   <tr ng-repeat='client in filtered = (clients | filter:query | orderBy:predicate:reverse)'>
-    <td>{{ client.client_mac }}</td>
-    <!-- <td>{{ client.first_seen | humanTime }}</td> -->
+    <td><a href="" ng-click="selectClientMac(client.client_mac)">{{ client.client_mac }}</a></td>
+    <td><a href="" ng-click="selectApMac(client.ap_mac)">{{ client.ap_mac }}</a></td>
     <td>{{ client.last_seen | humanTime }}</td>
     <td>{{ client.rssi }}</td>
     <td></td>

@@ -17,6 +17,9 @@ app.factory('Calibrator', ['$resource',
         dataType: 'json',
         params: {
           q: '@q',
+          client_mac: '@client_mac',
+          ap_mac: '@ap_mac',
+          distance: '@distance'
         }
       }
       });
