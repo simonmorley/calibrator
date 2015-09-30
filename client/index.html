@@ -30,7 +30,18 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <!-- <header class="hero-unit" id="banner"> -->
+    <!--   <div class="container"> -->
+    <!--     <h1>'Allo, 'Allo!</h1> -->
+    <!--     <1!-- <p class="lead">Kick-start your next web app with Angular Fullstack</p> --1> -->
+    <!--   </div> -->
+    <!-- </header> -->
     <div ng-view=""></div>
+
+    <footer class="footer">
+      <div class="container">
+      </div>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -71,9 +82,12 @@
           <script src="app/main/main.services.js"></script>
           <script src="components/calibration/calibration.directives.js"></script>
           <script src="components/calibration/calibration.services.js"></script>
+          <script src="components/maps/maps.directives.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
       <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+      <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyA2u0O-0TPExY2MRZebUyiGaZzYFPa1A00"></script>
+
 </body>
 </html>

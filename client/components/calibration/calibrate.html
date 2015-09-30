@@ -1,0 +1,17 @@
+<info-window>
+<p>Receiving Data</p>
+<div ng-if="position.lat">
+  <ul class="list-unstyled">
+    <li>Lat: {{ position.lat }}</li>
+    <li>Lng: {{ position.lng }}</li>
+  </ul>
+  <hr>
+</div>
+
+<ul ng-repeat="(k,v) in data" class="list-unstyled">
+  <li>{{ k }}<br> Max: {{ v.rssi_max }} Min: {{ v.rssi_min }} </li>
+</ul>
+</info-window>
+
+<google-maps pos="position" data="data" id="map_canvas" zoom="12" div="map" update="updateCT(options)">
+</google-maps>

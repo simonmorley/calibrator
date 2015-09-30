@@ -16,19 +16,18 @@
       <!-- <th>oh</td> -->
       <th>Client</td>
       <th>Ap</td>
+      <th>First Seen</td>
       <th>Last Seen</td>
       <th>RSSI</td>
-      <!-- <th>Delta</td> -->
-      <th>Calibrate</td>
     </tr>
     <tr ng-repeat='client in filtered = (clients | filter:query | orderBy:predicate:reverse)'>
       <td><a href="" ng-click="selectClientMac(client.client_mac)">{{ client.client_mac }}</a></td>
       <td><a href="" ng-click="selectApMac(client.ap_mac)">{{ client.ap_mac }}</a></td>
+      <td>{{ client.first_seen }}</td>
       <td>{{ client.last_seen | humanTime }}</td>
       <td>{{ client.rssi }}</td>
-      <td></td>
-      <!-- <td>{{ client.delta }}</td> -->
-      <!-- <td>{{ client.lat }}, {{ client.lng }}</td> -->
     </tr>
   </table>
+  <a ng-show="client_mac && filtered.length > 1" href="/calibrate/{{ client_mac }}" class="btn btn-default">Calibrate</a>
+  <p ng-hide="client_mac && filtered.length > 1">Not enough datas to calibrate this device</p>
 </div>

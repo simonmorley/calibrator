@@ -6,4 +6,7 @@ angular.module('calibratorApp').controller('MainCtrl', ['$scope', '$http', '$roo
     window.client = new Pusher('f5c774e098156e548079');
   });
 
+  $scope.position = {};
+  $scope.data     = [];
+
 }]);

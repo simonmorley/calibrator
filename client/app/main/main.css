@@ -28,3 +28,19 @@
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+
+#map_canvas_container {position: relative;}
+#map_canvas {position: absolute; top: 0px; left: 0px; right: 300px; bottom: 0;}
+#map_canvas_inner {width: 100%; height: 600px; margin: 0;}
+
+info-window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  right: 0;
+  background-color: #2a373e;
+  color: white;
+  z-index: 1000;
+  padding: 20px 20px;
+}

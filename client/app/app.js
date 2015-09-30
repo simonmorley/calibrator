@@ -26,6 +26,10 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
         templateUrl: 'components/calibration/main.html',
         controller: 'MainCtrl'
       })
+      .when('/calibrate/:id', {
+        templateUrl: 'components/calibration/calibrate.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

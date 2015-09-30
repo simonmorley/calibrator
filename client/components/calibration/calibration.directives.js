@@ -11,11 +11,12 @@ app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', '$location
       scope.distance = $routeParams.distance || 5;
     }
     scope.last_seen = $routeParams.last_seen || true;
+    scope.client_mac = $routeParams.client_mac;
 
     function getData() {
 
       var params = {
-        client_mac: $routeParams.client_mac,
+        client_mac: scope.client_mac,
         ap_mac: $routeParams.ap_mac,
         distance: scope.distance,
         last_seen: scope.last_seen
@@ -38,14 +39,14 @@ app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', '$location
     });
 
     scope.selectClientMac = function(val) {
-      scope.client_mac = val;  
+      scope.client_mac = val;
       var s = $location.search()
       s.client_mac = val;
       $location.search(s);
     };
 
     scope.selectApMac = function(val) {
-      scope.ap_mac = val;  
+      scope.ap_mac = val;
       var s = $location.search()
       s.ap_mac = val;
       $location.search(s);
@@ -55,6 +56,7 @@ app.directive('calibrator', ['Calibrator', '$routeParams', '$pusher', '$location
       $location.search({});
       scope.query = undefined;
     };
+
 
     getData();
 
