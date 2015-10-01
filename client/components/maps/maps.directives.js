@@ -213,6 +213,8 @@ app.directive('calibrate', ['Calibrator', '$routeParams', '$pusher', '$timeout',
     };
 
     var addToSet = function(client) {
+      console.log(client.lat, client.lng)
+
       if ( ap_macs[client.ap_mac] ) {
         var old_rssi_max = ap_macs[client.ap_mac].rssi_max;
         var old_rssi_min = ap_macs[client.ap_mac].rssi_min;

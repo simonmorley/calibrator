@@ -2,10 +2,10 @@
 
   <h1>{{ loading ? "Waiting for" : "Receiving" }} Data</h1>
 
-  <div ng-if="position.lat">
+  <div ng-if="pos.lat">
     <ul class="list-unstyled">
-      <li>Lat: {{ position.lat }}</li>
-      <li>Lng: {{ position.lng }}</li>
+      <li>Lat: {{ pos.lat }}</li>
+      <li>Lng: {{ pos.lng }}</li>
     </ul>
     <hr>
   </div>
@@ -17,7 +17,9 @@
     <h2>Positioning Test</h2>
 
     <ul ng-repeat="(k,v) in data.ap_macs" class="list-unstyled">
-      <li>{{ k }}<br> Max: {{ v.rssi_max }} Min: {{ v.rssi_min }}. C: {{ v.count }} </li>
+      <li>
+        {{ k }}<br> Max: {{ v.rssi_max }} Min: {{ v.rssi_min }}. C: {{ v.count }}
+      </li>
     </ul>
 
     <!-- {{ data.cb }} -->
