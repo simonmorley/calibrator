@@ -25,4 +25,3 @@ app.factory('Calibrator', ['$resource',
       });
   }
 ]);
-

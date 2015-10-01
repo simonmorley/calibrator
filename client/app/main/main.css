@@ -39,8 +39,34 @@ info-window {
   bottom: 0;
   width: 300px;
   right: 0;
-  background-color: #2a373e;
-  color: white;
+  /* color: white; */
   z-index: 1000;
   padding: 20px 20px;
+}
+
+body {
+  color: #CBCBCB;
+  background-color: #2a373e;
+}
+
+h1, h2, h3, p {
+  color: #CBCBCB;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+.btn-default {
+    color: #FFF;
+    background-color: #565656;
+    border-color: transparent;
 }

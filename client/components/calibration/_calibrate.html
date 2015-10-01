@@ -1,0 +1,53 @@
+<info-window>
+
+  <h1>{{ loading ? "Waiting for" : "Receiving" }} Data</h1>
+
+  <div ng-if="position.lat">
+    <ul class="list-unstyled">
+      <li>Lat: {{ position.lat }}</li>
+      <li>Lng: {{ position.lng }}</li>
+    </ul>
+    <hr>
+  </div>
+
+  <a class="btn btn-default" href="" ng-click="runPosTest()">Position</a>
+  <a class="btn btn-default" href="" ng-click="runDistTest()">Measure</a>
+
+  <div ng-show="position_test == true">
+    <h2>Positioning Test</h2>
+
+    <ul ng-repeat="(k,v) in data.ap_macs" class="list-unstyled">
+      <li>{{ k }}<br> Max: {{ v.rssi_max }} Min: {{ v.rssi_min }}. C: {{ v.count }} </li>
+    </ul>
+
+    <!-- {{ data.cb }} -->
+    <hr ng-if="data.ap_macs.length">
+  </div>
+
+  <div ng-show="distance_test">
+    <h2>Distance Test</h2>
+    <div ng-hide="selected_ap">
+      <h3>Select an AP</h3>
+      <ul class="list-unstyled" ng-repeat="ap in distance_aps">
+        <li><a href="" ng-click="measureSignal(ap)">{{ ap }}</a></li>
+      </ul>
+    </div>
+
+    <div ng-show="selected_ap">
+      <p><b>Test 1 - Stand Near the AP</b></p>
+      <p>Max: {{ measurement.near || 0 }} dBm</p>
+      <p><a href="" class="btn btn-default" ng-click="setTest('near')">Run</a></p>
+      <p><b>Test 2 - Stand 2m from AP</b></p>
+      <p>Max: {{ measurement.far || 0 }} dBm</p>
+      <p><a href="" class="btn btn-default" ng-click="setTest('far')">Run</a></p>
+      <p><b>Test 3 - Stand Outside</b></p>
+      <p>Max: {{ measurement.outside || 0 }} dBm</p>
+      <p><a href="" class="btn btn-default" ng-click="setTest('outside')">Run</a></p>
+    </div>
+  </div>
+
+  <div></div>
+</info-window>
+
+<div pos="position" data="data" loading="loading" id="map_canvas" zoom="12" div="map" update="updateCT(options)">
+</div>

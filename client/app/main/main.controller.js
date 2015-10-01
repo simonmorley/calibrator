@@ -7,6 +7,6 @@ angular.module('calibratorApp').controller('MainCtrl', ['$scope', '$http', '$roo
   });
 
   $scope.position = {};
-  $scope.data     = [];
+  $scope.data     = {};
 
 }]);

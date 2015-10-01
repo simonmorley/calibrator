@@ -29,5 +29,5 @@
     </tr>
   </table>
   <a ng-show="client_mac && filtered.length > 1" href="/calibrate/{{ client_mac }}" class="btn btn-default">Calibrate</a>
-  <p ng-hide="client_mac && filtered.length > 1">Not enough datas to calibrate this device</p>
+  <p ng-hide="client_mac == undefined">Not enough datas to calibrate this device</p>
 </div>
